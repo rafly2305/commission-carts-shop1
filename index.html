@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Art Portfolio</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  
+ <header>
+  <img src="images/ban.jpg" alt="Banner" class="banner" />
+</header>
+
+<!-- available commission -->
+<div class="available-banner">
+  ✔ Available for new projects
+</div>
+
+<!-- tampilan layout-->
+
+<div class="main-layout" style="display: flex; gap: 40px; padding: 40px;">
+
+  <!-- Sidebar Profil -->
+  <div class="profile-container">
+  <img src="images/prof.jpg" alt="Profile" class="profile-img" />
+  
+  <!-- Tombol Follow  -->
+  <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
+    <h2>RAFLY ARDIANSYAH</h2>
+    <p>Vtuber Artist (They/Them)<br>
+    SFW & NSFW | <br>
+    Will draw any genre ✨</p>
+    <p><strong>About Me</strong></p>
+    <p>My name is Rafly, I like drawing since I was 10 years old, then I started drawing anime since I was 16 years old until now.</p>
+ <p><strong>CARA HOSTING WEBSITE HTML CSS JS DI VERCEL GRATIS</strong><p>
+
+  <!-- 👇 Tambahkan video YouTube di sini -->
+  <div class="about-video">
+    <iframe 
+      src="https://www.youtube.com/embed/Kjw6pZJmqck?si=1syMhIL2_IH6Fx7m"
+      title="CARA HOSTING WEBSITE HTML CSS JS DI VERCEL GRATIS"
+      allowfullscreen>
+    </iframe>
+    <p>Source:Fahruul C <br>
+  </div>
+</div>
+
+  </aside>
+
+<script>
+  function showTab(tab) {
+    const tabs = document.querySelectorAll('.tab-btn');
+    tabs.forEach(btn => btn.classList.remove('active'));
+
+    if (tab === 'commissions') {
+      document.getElementById('commissions').style.display = 'block';
+      document.getElementById('portfolio').style.display = 'none';
+      tabs[0].classList.add('active');
+    } else {
+      document.getElementById('commissions').style.display = 'none';
+      document.getElementById('portfolio').style.display = 'block';
+      tabs[1].classList.add('active');
+    }
+  }
+
+  function toggleFollow(btn) {
+    btn.classList.toggle('followed');
+    btn.textContent = btn.classList.contains('followed') ? 'Followed' : 'Follow';
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    showTab('commissions');
+  });
+</script>
+  <!-- Konten Utama -->
+  <main class="content" style="flex: 1;">
+    <div class="tab-nav-horizontal">
+    <button class="tab-btn active" onclick="showTab('commissions')">Commissions</button>
+    <button class="tab-btn" onclick="showTab('portfolio')">Portfolio</button>
+    <button class="cart-btn" onclick="viewCart()">🛒 <span id="cartCount">0</span></button>
+    </div>
+<!-- POPUP CART -->
+<div id="cartPopup" class="cart-popup">
+  <div class="cart-popup-content">
+    <h3>🛒 Your Cart</h3>
+    <ul id="cartItems"></ul>
+    <button onclick="closeCart()">Close</button>
+  </div>
+</div>
+
+
+    <section id="commissions">
+  <h2>Commissions</h2>
+
+ <div class="commission-card">
+  <div class="commission-left">
+    <div class="image-slider">
+      <button class="prev" onclick="changeSlide(this, -1)">❮</button>
+      <img src="images/pt 1.jpg" class="slider-image active" alt="Image 1" />
+      <img src="images/pt 2.jpg" class="slider-image" alt="Image 2" />
+      <img src="images/pt 3.jpg" class="slider-image" alt="Image 3" />
+      <img src="images/pt 4.jpg" class="slider-image" alt="Image 4" />
+      <button class="next" onclick="changeSlide(this, 1)">❯</button>
+    </div>
+  </div>
+
+  <div class="commission-right">
+    <h3 class="title">[FULL BODY CHARACTER]</h3>
+    <p class="price">From <span>$30.00</span></p>
+    <ul class="desc">
+      <li>Sketch style with soft shading</li>
+      <li>One character</li>
+      <li>Simple background</li>
+    </ul>
+
+    <!-- Untuk FULL BODY CHARACTER -->
+<button class="btn-request" onclick="openModal('modal1')">Start Request</button>
+
+  </div>
+</div>
+
+  <div class="commission-card">
+  <div class="commission-left">
+    <div class="image-slider">
+      <button class="prev" onclick="changeSlide(this, -1)">❮</button>
+      <img src="images/KEPALA 1.jpg" class="slider-image active" alt="Image 1" />
+      <img src="images/KEPALA 2.jpg" class="slider-image" alt="Image 2" />
+      <img src="images/KEPALA 3.jpg" class="slider-image" alt="Image 3" />
+      <img src="images/KEPALA 4.jpg" class="slider-image" alt="Image 4" />
+      <button class="next" onclick="changeSlide(this, 1)">❯</button>
+    </div>
+  </div>
+
+  <div class="commission-right">
+    <h3 class="title">[3 HEADSHOT]</h3>
+    <p class="price">From <span>$40.00</span></p>
+    <ul class="desc">
+      <li>Sketch style with soft shading</li>
+      <li>3 character</li>
+      <li>Simple background</li>
+    </ul>
+ <!-- Untuk 3 HEADSHOT -->
+<button class="btn-request" onclick="openModal('modal2')">Start Request</button>
+
+  </div>
+</div>
+
+</section>
+
+<script>
+  function showTab(tab) {
+    const tabs = document.querySelectorAll('.tab-btn');
+    tabs.forEach(btn => btn.classList.remove('active'));
+
+    if (tab === 'commissions') {
+      document.getElementById('commissions').style.display = 'block';
+      document.getElementById('portfolio').style.display = 'none';
+      tabs[0].classList.add('active');
+    } else {
+      document.getElementById('commissions').style.display = 'none';
+      document.getElementById('portfolio').style.display = 'block';
+      tabs[1].classList.add('active');
+    }
+  }
+  function changeSlide(btn, direction) {
+  const slider = btn.parentElement;
+  const images = slider.querySelectorAll('.slider-image');
+  let index = Array.from(images).findIndex(img => img.classList.contains('active'));
+
+  images[index].classList.remove('active');
+  index = (index + direction + images.length) % images.length;
+  images[index].classList.add('active');
+}
+
+  // Default
+  document.addEventListener("DOMContentLoaded", () => {
+    showTab('commissions');
+  });
+</script>
+<section id="portfolio" class="section">
+  <div class="portfolio-grid">
+    <img src="images/pt 1.jpg" alt="Art 1" class="portfolio-item" />
+    <img src="images/pt 2.jpg" alt="Art 2" class="portfolio-item" />
+    <img src="images/pt 3.jpg" alt="Art 3" class="portfolio-item" />
+    <img src="images/pt 4.jpg" alt="Art 4" class="portfolio-item" />
+    <img src="images/pt 5.jpg" alt="Art 5" class="portfolio-item" />
+    <img src="images/pt 6.jpg" alt="Art " class="portfolio-item" />
+  </div>
+</section>
+</main>
+</div>
+<!-- Modal untuk preview gambar -->
+<div id="imageModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="modalImage" />
+</div>
+
+<footer>
+  <p>© RAFLY ARDIANSYAH. All rights reserved.</p>
+</footer>
+<!-- MODAL 1 - FULL BODY CHARACTER -->
+<div id="modal1" class="modal-overlay">
+  <div class="modal-content-box">
+    <span class="close-modal" onclick="closeModal('modal1')">&times;</span>
+    <div class="modal-body">
+      <div class="modal-images">
+        <img src="images/pt 1.jpg" alt="Sample 1" />
+        <img src="images/pt 2.jpg" alt="Sample 2" />
+      </div>
+      <div class="modal-info">
+        <h2>[FULL BODY CHARACTER]</h2>
+        <h4>Include:</h4>
+        <ul>
+          <li>Fullbody Illustration</li>
+          <li>Simple Background</li>
+          <li>1 Revision</li>
+        </ul>
+        <h4>Terms of Service:</h4>
+        <p>- Personal use only<br>- No refund after sketch<br>- Credit the artist when posting<br></p>
+      </div>
+    </div>
+    <div class="modal-footer">
+    <label style="display: flex; align-items: center; gap: 8px;">
+      <input type="checkbox" id="terms1" onchange="toggleRequestBtn('terms1', 'startBtn1')" />
+      I accept Rafly Terms of Service
+    </label>
+    <button class="btn" id="startBtn1" disabled onclick="addToCart('FULL BODY CHARACTER')">
+  Accept Terms to Start Request
+</button>
+
+
+  </div>
+  
+</div>
+</div>
+
+<!-- MODAL 2 - 3 HEADSHOT -->
+<div id="modal2" class="modal-overlay">
+  <div class="modal-content-box">
+    <span class="close-modal" onclick="closeModal('modal2')">&times;</span>
+    
+    <div class="modal-body">
+      <div class="modal-images">
+        <img src="images/KEPALA 1.jpg" alt="Sample 1" />
+        <img src="images/KEPALA 2.jpg" alt="Sample 2" />
+      </div>
+
+      <div class="modal-info">
+        <h2>[3 HEADSHOT]</h2>
+        <h4>Include:</h4>
+        <ul>
+          <li>3 Character Illustration</li>
+          <li>Simple Background</li>
+          <li>1 Revision</li>
+        </ul>
+        <h4>Terms of Service:</h4>
+        <p>
+          - Personal use only<br>
+          - No refund after sketch<br>
+          - Credit the artist when posting<br>
+        </p>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <label style="display: flex; align-items: center; gap: 8px;">
+        <input type="checkbox" id="terms2" onchange="toggleRequestBtn('terms2', 'startBtn2')" />
+        I accept Rafly Terms of Service
+      </label>
+     <button class="btn" id="startBtn2" disabled onclick="addToCart('3 HEADSHOT')">
+  Accept Terms to Start Request
+</button>
+
+
+    </div>
+
+  </div> <!-- ⬅️ Ini untuk .modal-content-box -->
+</div>   <!-- ✅ Ini untuk #modal2 -->
+
+<script>
+
+  function openModal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+</script>
+<script>function toggleRequestBtn(checkboxId, buttonId) {
+  const checkbox = document.getElementById(checkboxId);
+  const button = document.getElementById(buttonId);
+  button.disabled = !checkbox.checked;
+}
+</script>
+<script>
+let Cart = [];
+
+function addToCart(title) {
+  cart.push(title);
+  document.getElementById('cartCount').textContent = cart.length;
+}
+
+function viewCart() {
+  alert("🛒 Items in Cart:\n\n" + (cart.length ? cart.join("\n") : "Cart is empty."));
+}
+</script>
+<script>
+let cart = [];
+
+function addToCart(itemName) {
+  cart.push(itemName);
+  updateCartDisplay();
+  closeModal('modal1');
+  closeModal('modal2');
+  showCartNotification(itemName);
+}
+
+function updateCartDisplay() {
+  document.getElementById('cartCount').textContent = cart.length;
+  const list = document.getElementById('cartItems');
+  list.innerHTML = '';
+  cart.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    list.appendChild(li);
+  });
+}
+
+function viewCart() {
+  document.getElementById('cartPopup').style.display = 'flex';
+}
+
+function closeCart() {
+  document.getElementById('cartPopup').style.display = 'none';
+}
+
+function showCartNotification(itemName) {
+  const cartBtn = document.querySelector('.cart-btn');
+  cartBtn.textContent = `✅ Added: ${itemName}`;
+  setTimeout(() => {
+    cartBtn.innerHTML = `🛒 <span id="cartCount">${cart.length}</span>`;
+  }, 2000);
+}
+</script>
+
+</body>
+</html>
